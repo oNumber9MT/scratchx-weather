@@ -140,12 +140,12 @@
 
   var descriptor = {
     blocks: [
-      ['R', '天気を取得', 'get_weather'],
-      ['R', '%s の天気を取得', 'get_location_weather'],
-      ['R', '%s の気温を取得', 'get_location_temp'],
-      ['R', '%s の気圧を取得', 'get_location_pressure'],
-      ['R', '%s の予報を取得', 'retrive_forecast'],
-      ['r', '予報から気温を1つ取得', 'get_forecast_temp']
+      ['R', '東京の天気', 'get_weather'],
+      ['R', '%s の天気', 'get_location_weather'],
+      ['R', '%s の気温', 'get_location_temp'],
+      ['R', '%s の気圧', 'get_location_pressure'],
+      ['R', '%s の予報', 'retrive_forecast'],
+      ['r', '予報から気温', 'get_forecast_temp']
     ]
   };
 
