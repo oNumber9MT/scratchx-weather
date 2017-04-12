@@ -27,7 +27,7 @@
 
   ext.get_location_weather = function(loc, callback) {
     $.ajax({
-      url: 'http://api.openweathermap.org/data/2.5/weather?q=' + encodeURIComponent(loc) + '&units=imperial&APPID=29db1a017c2219ae1a09a9d63ecee5cb',
+      url: 'http://api.openweathermap.org/data/2.5/weather?q=' + encodeURIComponent(loc) + ',%20JP&units=imperial&APPID=29db1a017c2219ae1a09a9d63ecee5cb',
       dataType: 'jsonp',
       success: function(data) {
         if (data.cod == 200) {
@@ -47,7 +47,7 @@
 
   ext.get_location_temp = function(loc, callback) {
     $.ajax({
-      url: 'http://api.openweathermap.org/data/2.5/weather?q=' + encodeURIComponent(loc) + '&units=imperial&APPID=29db1a017c2219ae1a09a9d63ecee5cb',
+      url: 'http://api.openweathermap.org/data/2.5/weather?q=' + encodeURIComponent(loc) + ',%20JP&units=imperial&APPID=29db1a017c2219ae1a09a9d63ecee5cb',
       dataType: 'jsonp',
       success: function(data) {
         if (data.cod == 200) {
@@ -67,7 +67,7 @@
 
   ext.get_location_pressure = function(loc, callback) {
     $.ajax({
-      url: 'http://api.openweathermap.org/data/2.5/weather?q=' + encodeURIComponent(loc) + '&units=imperial&APPID=29db1a017c2219ae1a09a9d63ecee5cb',
+      url: 'http://api.openweathermap.org/data/2.5/weather?q=' + encodeURIComponent(loc) + ',%20JP&units=imperial&APPID=29db1a017c2219ae1a09a9d63ecee5cb',
       dataType: 'jsonp',
       success: function(data) {
         if (data.cod == 200) {
@@ -87,7 +87,7 @@
 
   ext.get_location_humidity = function(loc, callback) {
     $.ajax({
-      url: 'http://api.openweathermap.org/data/2.5/weather?q=' + encodeURIComponent(loc) + '&units=imperial&APPID=29db1a017c2219ae1a09a9d63ecee5cb',
+      url: 'http://api.openweathermap.org/data/2.5/weather?q=' + encodeURIComponent(loc) + ',%20JP&units=imperial&APPID=29db1a017c2219ae1a09a9d63ecee5cb',
       dataType: 'jsonp',
       success: function(data) {
         if (data.cod == 200) {
@@ -111,7 +111,7 @@
     forecast = [];
     pointer = 0;
     $.ajax({
-      url: 'http://api.openweathermap.org/data/2.5/forecast?q=' + encodeURIComponent(loc) + '&units=imperial&APPID=29db1a017c2219ae1a09a9d63ecee5cb',
+      url: 'http://api.openweathermap.org/data/2.5/forecast?q=' + encodeURIComponent(loc) + ',%20JP&units=imperial&APPID=29db1a017c2219ae1a09a9d63ecee5cb',
       dataType: 'jsonp',
       success: function(data) {
         if (data.cod == 200) {
