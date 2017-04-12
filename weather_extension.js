@@ -7,7 +7,7 @@
 
   ext.get_weather = function(callback) {
     $.ajax({
-      url: 'http://api.openweathermap.org/data/2.5/weather?q=Kashiwa,%20JP&units=imperial&APPID=fa4bc3cd05fcedff03fcec2db6bb2a4f',
+      url: 'http://api.openweathermap.org/data/2.5/weather?q=Kashiwa,%20JP&units=imperial&APPID=29db1a017c2219ae1a09a9d63ecee5cb',
       dataType: 'jsonp',
       success: function(data) {
         if (data.cod == 200) {
@@ -25,9 +25,9 @@
     });
   };
 
-  ext.get_location_wather = function(loc, callback) {
+  ext.get_location_weather = function(loc, callback) {
     $.ajax({
-      url: 'http://api.openweathermap.org/data/2.5/weather?q=' + encodeURIComponent(loc) + '&units=imperial&APPID=fa4bc3cd05fcedff03fcec2db6bb2a4f',
+      url: 'http://api.openweathermap.org/data/2.5/weather?q=' + encodeURIComponent(loc) + '&units=imperial&APPID=29db1a017c2219ae1a09a9d63ecee5cb',
       dataType: 'jsonp',
       success: function(data) {
         if (data.cod == 200) {
@@ -47,7 +47,7 @@
 
   ext.get_location_temp = function(loc, callback) {
     $.ajax({
-      url: 'http://api.openweathermap.org/data/2.5/weather?q=' + encodeURIComponent(loc) + '&units=imperial&APPID=fa4bc3cd05fcedff03fcec2db6bb2a4f',
+      url: 'http://api.openweathermap.org/data/2.5/weather?q=' + encodeURIComponent(loc) + '&units=imperial&APPID=29db1a017c2219ae1a09a9d63ecee5cb',
       dataType: 'jsonp',
       success: function(data) {
         if (data.cod == 200) {
@@ -67,7 +67,7 @@
 
   ext.get_location_temp = function(loc, callback) {
     $.ajax({
-      url: 'http://api.openweathermap.org/data/2.5/weather?q=' + encodeURIComponent(loc) + '&units=imperial&APPID=fa4bc3cd05fcedff03fcec2db6bb2a4f',
+      url: 'http://api.openweathermap.org/data/2.5/weather?q=' + encodeURIComponent(loc) + '&units=imperial&APPID=29db1a017c2219ae1a09a9d63ecee5cb',
       dataType: 'jsonp',
       success: function(data) {
         if (data.cod == 200) {
@@ -87,11 +87,11 @@
 
   var forecast = [];
   var pointer = 0;
-  ext.retrive_forcast = function(loc, callback) {
+  ext.retrive_forecast = function(loc, callback) {
     forecast = [];
     pointer = 0;
     $.ajax({
-      url: 'http://api.openweathermap.org/data/2.5/forecast?q=' + encodeURIComponent(loc) + '&units=imperial&APPID=fa4bc3cd05fcedff03fcec2db6bb2a4f',
+      url: 'http://api.openweathermap.org/data/2.5/forecast?q=' + encodeURIComponent(loc) + '&units=imperial&APPID=29db1a017c2219ae1a09a9d63ecee5cb',
       dataType: 'jsonp',
       success: function(data) {
         if (data.cod == 200) {
@@ -104,7 +104,7 @@
     });
   };
 
-  ext.get_forcast_temp = function() {
+  ext.get_forecast_temp = function() {
      if (forecast.length <= 0) {
        return '';
      }
@@ -121,10 +121,10 @@
   var descriptor = {
     blocks: [
       ['R', '天気を取得', 'get_weather'],
-      ['R', '%s の天気を取得', 'get_location_wather'],
+      ['R', '%s の天気を取得', 'get_location_weather'],
       ['R', '%s の気温を取得', 'get_location_temp'],
-      ['w', '%s の予報を取得', 'retrive_forcast'],
-      ['r', '予報から気温を1つ取得', 'get_forcast_temp']
+      ['w', '%s の予報を取得', 'retrive_forecast'],
+      ['r', '予報から気温を1つ取得', 'get_forecast_temp']
     ]
   };
 
