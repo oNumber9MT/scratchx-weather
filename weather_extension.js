@@ -7,7 +7,7 @@
 
   ext.get_weather = function(callback) {
     $.ajax({
-      url: 'http://api.openweathermap.org/data/2.5/weather?q=Kashiwa,%20JP&units=imperial&APPID=29db1a017c2219ae1a09a9d63ecee5cb',
+      url: 'http://api.openweathermap.org/data/2.5/weather?q=Tokyo,%20JP&units=imperial&APPID=29db1a017c2219ae1a09a9d63ecee5cb',
       dataType: 'jsonp',
       success: function(data) {
         if (data.cod == 200) {
@@ -65,18 +65,38 @@
     });
   };
 
-  ext.get_location_temp = function(loc, callback) {
+  ext.get_location_pressure = function(loc, callback) {
     $.ajax({
       url: 'http://api.openweathermap.org/data/2.5/weather?q=' + encodeURIComponent(loc) + '&units=imperial&APPID=29db1a017c2219ae1a09a9d63ecee5cb',
       dataType: 'jsonp',
       success: function(data) {
         if (data.cod == 200) {
           console.log(data);
-          var temp = data.main.temp;
-          if (temp == undefined) {
+          var pressure = data.main.pressure;
+          if (pressure == undefined) {
             callback('');
           } else {
-            callback((5/9)*(temp-32));
+            callback(pressure);
+          }
+        } else {
+          callback('');
+        }
+      }
+    });
+  };
+
+  ext.get_location_humidity = function(loc, callback) {
+    $.ajax({
+      url: 'http://api.openweathermap.org/data/2.5/weather?q=' + encodeURIComponent(loc) + '&units=imperial&APPID=29db1a017c2219ae1a09a9d63ecee5cb',
+      dataType: 'jsonp',
+      success: function(data) {
+        if (data.cod == 200) {
+          console.log(data);
+          var humidity = data.main.humidity;
+          if (humidity == undefined) {
+            callback('');
+          } else {
+            callback(humidity);
           }
         } else {
           callback('');
@@ -123,7 +143,8 @@
       ['R', '天気を取得', 'get_weather'],
       ['R', '%s の天気を取得', 'get_location_weather'],
       ['R', '%s の気温を取得', 'get_location_temp'],
-      ['w', '%s の予報を取得', 'retrive_forecast'],
+      ['R', '%s の気圧を取得', 'get_location_pressure'],
+      ['R', '%s の予報を取得', 'retrive_forecast'],
       ['r', '予報から気温を1つ取得', 'get_forecast_temp']
     ]
   };
